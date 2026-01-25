@@ -1,0 +1,136 @@
+{
+  "result": "ok",
+  "response": "collection",
+  "data": [
+    {
+      "id": "8d8579ee-0f4b-42ac-9b86-45f08c493ec7",
+      "type": "manga",
+      "attributes": {
+        "title": {
+          "en": "Warui no wa Shakai da"
+        },
+        "altTitles": [
+          {
+            "ja": "悪いのは社会だ"
+          },
+          {
+            "ja-ro": "Warui no ha Shakai da"
+          },
+          {
+            "en": "Blame Society"
+          },
+          {
+            "en": "It's Society's Fault"
+          }
+        ],
+        "description": {
+          "en": "Maki meets a man named Tomonori who pays well. What does the word \"dole\" that he often uses mean? This is the story of a woman who falls for a scumbag man who nests on the dark side of society.",
+          "ja": "とも のりという男のせいで、人生が狂わされたマキ。なぜ、マキは彼に惹かれたのか？ そもそも、とものりは何者なのか？"
+        },
+        "isLocked": false,
+        "links": {
+          "al": "189092",
+          "ap": "warui-no-wa-shakai-da",
+          "bw": "series/524151",
+          "mu": "zi2gwi2",
+          "amz": "https://www.amazon.co.jp/dp/B0FCC6HPHS",
+          "ebj": "https://ebookjapan.yahoo.co.jp/books/905682",
+          "mal": "180258",
+          "raw": "https://comic-zenon.com/episode/2550912965179920237"
+        },
+        "officialLinks": null,
+        "originalLanguage": "ja",
+        "lastVolume": "3",
+        "lastChapter": "22",
+        "publicationDemographic": "josei",
+        "status": "completed",
+        "year": 2025,
+        "contentRating": "safe",
+        "tags": [
+          {
+            "id": "423e2eae-a7a2-4a8b-ac03-a8351462d71d",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Romance"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "5ca48985-9a9d-4bd8-be29-80dc0303db72",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Crime"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "b9af3a63-f058-46de-a9a0-e0c13906197a",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Drama"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          },
+          {
+            "id": "f8f62932-27da-4fe4-8ee1-6779a8c5edba",
+            "type": "tag",
+            "attributes": {
+              "name": {
+                "en": "Tragedy"
+              },
+              "description": {},
+              "group": "genre",
+              "version": 1
+            },
+            "relationships": []
+          }
+        ],
+        "state": "published",
+        "chapterNumbersResetOnNewVolume": false,
+        "createdAt": "2025-01-26T08:40:38+00:00",
+        "updatedAt": "2026-01-16T06:00:15+00:00",
+        "version": 14,
+        "availableTranslatedLanguages": [
+          "en"
+        ],
+        "latestUploadedChapter": "3d91a053-b54a-42a9-b915-d81c016c5856"
+      },
+      "relationships": [
+        {
+          "id": "52c757b3-f437-43ca-b912-3926fe4b42d9",
+          "type": "author"
+        },
+        {
+          "id": "28c02fe4-dd0b-4380-9d8b-b8a49064cbfa",
+          "type": "artist"
+        },
+        {
+          "id": "115bb422-d899-4ce1-90f5-f0b015ea122d",
+          "type": "cover_art"
+        },
+        {
+          "id": "4bf80b7d-a82e-4e0d-9dc2-108ca51bddf1",
+          "type": "creator"
+        }
+      ]
+    }
+  ],
+  "limit": 1,
+  "offset": 0,
+  "total": 90002
+}
