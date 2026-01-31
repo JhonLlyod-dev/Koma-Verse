@@ -12,12 +12,14 @@ import { getChapter,getRatings } from "@/Service/mangadex-api";
 import { use, useEffect,useState } from "react";
 import { formatTimeAgo,contentRatings,formatCount } from "@/utils/utils";
 import { StarIcon, UsersIcon } from "@heroicons/react/16/solid";
+import { useRouter } from "next/navigation";
 
 export default function Card({title, id, author, chapterId, imageUrl, contentRating = "safe"}: CardProps) {
 
   const [chapter, setChapter] = useState(null);
   const [date, setDate] = useState("");
   const [mangaRating, setMangaRating] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     if (chapterId) {
@@ -36,9 +38,12 @@ export default function Card({title, id, author, chapterId, imageUrl, contentRat
 
   const ratingInfo = contentRatings[contentRating as keyof typeof contentRatings] || { label: contentRating, color: "bg-gray-200 text-gray-800" };
 
+  function handleClick() {
+    router.push(`/manga/${id}`);
+  }
 
   return (
-    <div className="flex flex-col gap-1 md:gap-1 cursor-pointer">
+    <div onClick={handleClick} className="flex flex-col gap-1 md:gap-1 cursor-pointer">
       <div className=" relative w-40 h-60 md:w-50 md:h-70 bg-gray-500 bg rounded-md overflow-hidden shadow-lg">
         <span className={`${ratingInfo.color} absolute top-1 left-1 text-xs font-semibold bg-background rounded-md px-2 py-1`}>{ratingInfo.label}</span>
         <img src={imageUrl} className="w-full h-full object-cover" alt="Manga Cover Image" />

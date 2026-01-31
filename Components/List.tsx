@@ -9,6 +9,7 @@ interface ListProps{
 
 import { getRatings } from "@/Service/mangadex-api";
 import { StarIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export default async function List({id, title, author, ImageUrl, ranking}: ListProps){
 
@@ -21,7 +22,8 @@ export default async function List({id, title, author, ImageUrl, ranking}: ListP
   const mangaRating = ratings.statistics[mangaId].rating.average;
 
   return(
-    <div className="flex gap-4 w-full  overflow-hidden hover:bg-gray-50/10 p-2">
+   <Link href={`/manga/${id}`} >
+    <div  className=" cursor-pointer flex gap-4 w-full  overflow-hidden hover:bg-gray-50/10 p-2">
       <img
         src={ImageUrl}
         className="w-14 h-18 object-cover shrink-0"
@@ -47,5 +49,6 @@ export default async function List({id, title, author, ImageUrl, ranking}: ListP
         </div>
       </div>
     </div>
+   </Link>
   )
 }

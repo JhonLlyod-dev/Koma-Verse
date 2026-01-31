@@ -1,21 +1,18 @@
 
-export function getMangaTitle(titleObj: { [lang: string]: string }): string {
-  // Preferred language order
+export function getMangaTitle(titleObj?: { [lang: string]: string } | null): string {
+  if (!titleObj || Object.keys(titleObj).length === 0) return "Untitled";
+
   const preferred = ["en", "ja", "ko-ro", "ja-ro"];
 
   for (const lang of preferred) {
-    if (titleObj[lang]) {
-      return titleObj[lang];
-    }
+    if (titleObj[lang]) return titleObj[lang];
   }
 
-  // Fallback: pick first available title
-  const keys = Object.keys(titleObj);
-  if (keys.length > 0) return titleObj[keys[0]];
-
-  // Fallback text
-  return "Untitled";
+  // fallback: return first available title
+  const firstKey = Object.keys(titleObj)[0];
+  return titleObj[firstKey];
 }
+
 
 export function getMangaDesc(descObj: { [lang: string]: string }): string {
   // Preferred language order
@@ -55,7 +52,7 @@ export function formatTimeAgo(dateString: string): string {
 
 export function getCoverUrl(manga: any) {
   // Find the cover_art relationship
-  const coverRel = manga.relationships.find(
+  const coverRel = manga.relationships?.find(
     (rel: any) => rel.type === "cover_art"
   );
 
@@ -79,6 +76,42 @@ export function formatCount(num: number): string {
 
   return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
 }
+
+
+interface ChapterAttributes {
+  volume?: string | null;
+  chapter?: string | null;
+  publishAt: string;
+}
+
+interface Chapter {
+  id: string;
+  type: 'chapter';
+  attributes: ChapterAttributes;
+}
+
+export const sortChaptersLatestFirst = (chapters: Chapter[]): Chapter[] => {
+  return [...chapters].sort((a, b) => {
+    const volA = Number(a.attributes.volume);
+    const volB = Number(b.attributes.volume);
+
+    if (volA !== volB) {
+      return volB - volA; // higher volume first
+    }
+
+    const chA = Number(a.attributes.chapter);
+    const chB = Number(b.attributes.chapter);
+
+    if (chA !== chB) {
+      return chB - chA; // higher chapter first
+    }
+
+    return (
+      new Date(b.attributes.publishAt).getTime() -
+      new Date(a.attributes.publishAt).getTime()
+    );
+  });
+};
 
 
 

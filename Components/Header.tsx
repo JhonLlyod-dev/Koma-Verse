@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import SearchBar from "./SearchBar";
 import {Bars3BottomLeftIcon,XMarkIcon,MagnifyingGlassIcon} from '@heroicons/react/16/solid';
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const router = useRouter();
@@ -13,13 +14,31 @@ export default function Header() {
   return (
     <header className="flex-center justify-between bg-background px-6 md:px-10 lg:px-20  py-4 padding">
       <div className="flex-center justify-between lg:justify-start gap-5 flex-row-reverse w-full   lg:flex-row ">
-        <img src="/koma-verse.png" alt="KomaVerse's Logo" className="  w-20  sm:w-25 md:30"/>
+        <Link href="/">
+         <img src="/koma-verse.png" alt="KomaVerse's Logo" className="  w-20  sm:w-25 md:30"/>
+        </Link>
 
         <ul className="hidden font-medium lg:flex-center  gap-10">
-          <li>Latest</li>
-          <li>Explore</li>
-          <li>Popularity</li>
-          <li>About</li>
+          <li>
+            <Link href="/">
+              Latest
+            </Link>
+          </li>
+          <li>
+            <Link href="/explore">
+              Explore
+            </Link>
+          </li>
+          <li>
+            <Link href="/popular">
+              Popularity
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              About
+            </Link>
+          </li>
         </ul>
 
         <div className="flex-center lg:hidden ">

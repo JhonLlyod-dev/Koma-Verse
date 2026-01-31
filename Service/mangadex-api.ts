@@ -3,7 +3,7 @@ const base_url: String = "https://api.mangadex.org";
 export async function getMangaList(params?: Record<string, string>) {
   const query = new URLSearchParams(params);
 
-  query.set("limit", "20");          // always include limit
+  query.set("limit", "31");          // always include limit
   query.append("includes[]", "cover_art"); // include cover art
   query.append("includes[]", "author");    // include author
 
@@ -108,4 +108,24 @@ export async function getMangaDetails(mangaId: string) {
   const data = await response.json();
   return data;
 }
+
+
+export  async function getChapterList(id: String) {
+  return fetch(`${base_url}/manga/${id}/feed`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json());
+}
+
+export async function mangaPanel(id: String) {
+  return fetch(`${base_url}/at-home/server/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json());
+}
+
 
